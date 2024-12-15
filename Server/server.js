@@ -9,19 +9,15 @@ const Stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 app.use(
   cors({
-    origin: ["https://myebazarstore.onrender.com"],
+    origin: ["https://ebazaar-hkxq.onrender.com"],
   })
 );
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "..", "client", "dist")));
+app.use(express.static(path.join(__dirname, "../Client/dist")));
 
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/dist/index.html"), (err) => {
-    if (err) {
-      console.error("Error sending file:", err);
-    }
-  });
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../Client/dist/index.html"));
 });
 
 app.post("/pay", async (req, res) => {

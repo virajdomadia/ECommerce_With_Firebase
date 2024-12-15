@@ -6,7 +6,7 @@ import axios from "axios";
 
 const Cart = () => {
   const productData = useSelector((state) => state.bazar.product);
-  const [totalAmt, setTotalAmt] = useState(null);
+  const [totalAmt, setTotalAmt] = useState(0);
   const [payNow, setPayNow] = useState(false);
   const userInfo = useSelector((state) => state.bazar.userInfo);
 
@@ -71,7 +71,7 @@ const Cart = () => {
           {payNow && (
             <div className="w-full mt-2 flex items-center justify-center">
               <StripeCheckout
-                stripeKey="pk_test_51NPN6ZSAdCrwmZUXYsOcpBg6s7nF3i7hLZTewUQO1Uz91mbUnTj9ybvhCwpNXnqg2I9P0WkPRqcl8YPK0ALbuoyQ00L3VpJnd6"
+                stripeKey="pk_test_51QWJwrCfHUqvs4bODJEzscbTWvLGe1rRJdGPEkICHveWKz5nYhlYgVdxQoIqH5ywJIKLWveSGkzZXeaG8Z7pXlmm00Z2hqvjg1"
                 name="Bazar Online Shopping"
                 amount={totalAmt * 100}
                 label="Pay to Bazar"
